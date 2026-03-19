@@ -34,7 +34,25 @@ app.get("/", (req, res) => {
 })
 
 app.post("/auth/signin", (req, res) => {
+    try {
+        const { username, password } = req.body
 
+        // проверьте есть ли username и password
+        // если нет, то 400
+
+        if (!username || !password) {
+            return res.status(400).json({error: "Missing data"})
+        }
+
+        const user = undefined // найти пользователя из бд
+        // Вернуть 401 если юзера нет
+
+        const valid = undefined // проверить через 
+        // функцию bcr.compareSync
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({ error: "Something went wrong" })
+    }
 })
 app.post("/auth/signup", (req, res) => {
     try {
